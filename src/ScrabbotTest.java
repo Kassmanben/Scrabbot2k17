@@ -40,7 +40,34 @@ public class ScrabbotTest {
 	public void wordValuesFilled() {
 		assertFalse(bot.wordValues.isEmpty());
 		assertEquals(bot.getWordValue("hello"), 8);
-		assertEquals(bot.getWordValue("cars"), 6);
-		
+		assertEquals(bot.getWordValue("cars"), 6);	
 	}
+	
+	@Test
+	public void runWithRack(){
+		bot.runWithRack("aireumn");
+		assertEquals("uremia", bot.big);
+	}
+	
+	@Test
+	public void whichLettersAreDifferent(){
+		assertEquals(bot.whichLettersAreDifferent("facetime", "effacees"),"fes");
+	}
+	
+	@Test
+	public void rackGenerates() {
+		String testR = null;
+		assertEquals(null,testR);
+		testR = bot.generateRandomRack();
+		assertFalse(testR.isEmpty());
+	}
+	
+//	@Test
+//	public void permutationsCorrect(){
+//		bot.runWithAllPermutations("uswindp");
+//		//Requires this assertion, because words with the same number of points are treated the same
+//		assertEquals("", bot.whichLettersAreDifferent("upwinds",bot.big));
+//		assertEquals(bot.bigS, bot.getWordValue(bot.big));
+//		
+//	}
 }
