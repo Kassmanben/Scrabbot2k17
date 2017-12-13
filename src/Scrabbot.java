@@ -74,7 +74,7 @@ public class Scrabbot {
 	 *            String of tiles provided by the user, used to return the list
 	 *            of words that can be made from these letters
 	 */
-	private String runWithRack(String rack) {
+	public String runWithRack(String rack) {
 		originalRack = rack;
 		rack = sortRack(rack);
 		StdOut.println("Testing rack: " + rack.toUpperCase());
@@ -83,6 +83,7 @@ public class Scrabbot {
 		for (String s : sorted) {
 			print(s + "\t" + getWordValue(s));
 		}
+		bigS = getWordValue(big);
 		return big;
 	}
 
@@ -90,7 +91,7 @@ public class Scrabbot {
 	 * Runs the Scrabbot with a randomly generated rack of tiles, using the
 	 * expensive permutation method
 	 */
-	private void runWithAllPermutations(String rack) {
+	public void runWithAllPermutations(String rack) {
 		originalRack = rack;
 		StdOut.println("Testing rack: " + rack.toUpperCase());
 		alreadySeen = new HashMap<String, Integer>();
@@ -107,7 +108,7 @@ public class Scrabbot {
 	 *            String of tiles to be sorted
 	 * @return String of sorted letters
 	 */
-	private String sortRack(String rack) {
+	public String sortRack(String rack) {
 		String str = "";
 		for (int i = 0; i < scrabbleAlphabet.length; i++) {
 			for (char l : rack.toLowerCase().toCharArray()) {
@@ -407,7 +408,7 @@ public class Scrabbot {
 	 * 
 	 * @return String of 7 random tiles pulled from the letter bag
 	 */
-	private String generateRandomRack() {
+	public String generateRandomRack() {
 		letterRack = new ArrayList<Character>();
 		String rack = "";
 
@@ -423,7 +424,7 @@ public class Scrabbot {
 	}
 
 	/** Creates a hashmap to determine the value of each letter */
-	private void initializeletterValues() {
+	public void initializeletterValues() {
 		letterValues = new HashMap<Character, Integer>();
 		letterValues.clear();
 		letterValues.put('a', 1);
@@ -576,7 +577,7 @@ public class Scrabbot {
 
 	public static void main(String[] args) {
 		Scrabbot s = new Scrabbot("dict.txt");
-		String biggest = s.runWithRack("swniu__");
+		String biggest = s.runWithRack("qweurl_");
 		print("The word worth the most points is: " + biggest + "\nPoints: "
 				+ s.getWordValue(biggest));
 	}
