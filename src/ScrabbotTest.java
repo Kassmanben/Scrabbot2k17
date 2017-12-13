@@ -62,12 +62,12 @@ public class ScrabbotTest {
 		assertFalse(testR.isEmpty());
 	}
 	
-//	@Test
-//	public void permutationsCorrect(){
-//		bot.runWithAllPermutations("uswindp");
-//		//Requires this assertion, because words with the same number of points are treated the same
-//		assertEquals("", bot.whichLettersAreDifferent("upwinds",bot.big));
-//		assertEquals(bot.bigS, bot.getWordValue(bot.big));
-//		
-//	}
+	@Test
+	public void permutationsCorrect(){
+		bot.runWithAllPermutations("uswindp");
+		//Requires this assertion, because words with the same number of points are treated the same
+		assertEquals("", bot.whichLettersAreDifferent("upwinds",bot.big));
+		assertEquals(bot.bigS, bot.getWordValue(bot.big));
+		
+	}
 }
