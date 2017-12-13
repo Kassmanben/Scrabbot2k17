@@ -41,6 +41,21 @@ public class ScrabbotTest {
 		assertFalse(bot.wordValues.isEmpty());
 		assertEquals(bot.getWordValue("hello"), 8);
 		assertEquals(bot.getWordValue("cars"), 6);
+		@Test	
+	}
+	
+	public void permutationsCorrect(){
+		bot.runWithRack("swinud_");
+		assertEquals(bot.big, "windups");
+		assertEquals(bot.bigS, bot.getWordValue(bot.big));
 		
+	}
+	
+	@Test
+	public void rackGenerates() {
+		String testR = null;
+		assertEquals(null,testR);
+		testR = bot.generateRandomRack();
+		assertFalse(testR.isEmpty());
 	}
 }
